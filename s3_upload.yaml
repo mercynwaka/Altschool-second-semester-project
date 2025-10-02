@@ -1,0 +1,23 @@
+---
+- name: Create S3 bucket and upload HTML file
+  hosts: localhost   
+  connection: local
+  gather_facts: no
+
+  tasks:
+    - name: Create S3 bucket
+      amazon.aws.s3_bucket:
+        name: altschool-project-bucket
+        state: present
+        region: us-east-1
+
+    - name: Upload index.html to S3
+      amazon.aws.aws_s3:
+        bucket: altschool-project-bucket
+        object: index.html
+        src: ./index.html
+        mode: put
+        region: us-east-1
+
+
+  

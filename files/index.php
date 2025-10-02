@@ -19,6 +19,7 @@
         echo $publicIp ? $publicIp : "Unavailable";
     ?>
     </h1>
+     <p>Served from EC2 behind an Application Load Balancer.</p>
 </body>
 </html>
 
